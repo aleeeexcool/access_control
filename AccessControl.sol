@@ -50,7 +50,7 @@ abstract contract AccessControl is IAccessControl {
 
     function _checkRole(bytes32 role, address account) internal view virtual {
         if(!hasRole(role, account)) {
-            revert("no any role!");
+            revert("no such role!");
         }
     }
 
