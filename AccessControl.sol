@@ -7,7 +7,6 @@ abstract contract AccessControl is IAccessControl {
     struct RoleData {
         mapping(address => bool) members;
         bytes32 adminRole;
-        // uint count;
     }
 
     mapping(bytes32 => RoleData) private _roles;
@@ -37,9 +36,6 @@ abstract contract AccessControl is IAccessControl {
 
     function renounceRole(bytes32 role, address account) public virtual {
         require(account == msg.sender, "can only renounce for yourself");
-        // if(role == DEFAULT_ADMIN_ROLE.count < 2) {
-        //     revert("You cannot renounce your last SuperAdmin role");
-        // }
 
         _revokeRole(role, account);
     }
